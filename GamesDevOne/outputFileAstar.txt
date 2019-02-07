@@ -1,17 +1,12 @@
 X _ Y
-3_8
-3_7
-4_7
-5_7
-6_7
-6_6
-6_5
-6_4
-6_3
+5_6
+5_5
+5_4
 5_3
-4_3
+5_2
+4_2
+3_2
 3_3
-2_3
-2_2
-Number of Itterations: 19
-Number of Sorts: 19
+3_4
+Number of Itterations: 17
+Number of Sorts: 17

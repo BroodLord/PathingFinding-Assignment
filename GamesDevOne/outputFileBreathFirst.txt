@@ -1,9 +1,8 @@
 X _ Y
-5_6
-5_7
-4_7
-3_7
-3_6
-3_5
-3_4
-Number of Itterations: 46
+1_5
+2_5
+2_4
+2_3
+2_2
+2_1
+Number of Itterations: 18

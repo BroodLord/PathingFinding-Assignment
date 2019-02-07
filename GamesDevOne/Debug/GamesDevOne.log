@@ -1,9 +1,8 @@
-﻿cl : Command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  GamesDevOne.cpp
-c:\users\danny\desktop\gamesdevone\gamesdevone.cpp(51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\danny\desktop\gamesdevone\gamesdevone.cpp(52): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\users\danny\desktop\gamesdevone\gamesdevone.cpp(166): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\danny\desktop\gamesdevone\gamesdevone.cpp(167): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\danny\desktop\gamesdevone\gamesdevone.cpp(169): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-  GamesDevOne.vcxproj -> C:\Users\danny\Desktop\GamesDevOne\\GamesDevOneDebug.exe
+﻿  GamesDevOne.cpp
+d:\dkavanagh2\documents\github\pathingfinding-assignment\gamesdevone\gamesdevone.cpp(62): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\dkavanagh2\documents\github\pathingfinding-assignment\gamesdevone\gamesdevone.cpp(63): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\dkavanagh2\documents\github\pathingfinding-assignment\gamesdevone\gamesdevone.cpp(177): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+d:\dkavanagh2\documents\github\pathingfinding-assignment\gamesdevone\gamesdevone.cpp(178): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+d:\dkavanagh2\documents\github\pathingfinding-assignment\gamesdevone\gamesdevone.cpp(180): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  GamesDevOne.vcxproj -> D:\DKavanagh2\Documents\GitHub\PathingFinding-Assignment\GamesDevOne\\GamesDevOneDebug.exe
   Copying DLLs & shaders...

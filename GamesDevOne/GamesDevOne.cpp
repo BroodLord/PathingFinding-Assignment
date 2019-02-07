@@ -11,6 +11,17 @@
 #include "SearchFactory.h"
 using namespace tle;
 
+/* These are keys that will preform a certain part of the code */
+const EKeyCode kAstar = Key_1;
+const EKeyCode kBreathFirst = Key_2;
+const EKeyCode kPlusLetter = Key_Right;
+const EKeyCode kMinusLetter = Key_Left;
+const EKeyCode kLoadMap = Key_Return;
+const EKeyCode kStartPath = Key_Space;
+const EKeyCode kReset = Key_R;
+const EKeyCode kQuit = Key_Escape;
+
+
 TerrainMap gmapTerrian; // Holds the map numbers
 unique_ptr <SNode> gpStartNode(new SNode); // Will point to the start position on the map
 unique_ptr <SNode> gpEndNode(new SNode); // Will point to the end position on the map
@@ -25,7 +36,7 @@ void main()
 
 	// Add default folder for meshes and other media
 	myEngine->AddMediaFolder("C:\\ProgramData\\TL-Engine\\Media");
-	myEngine->AddMediaFolder("C:\\Users\\danny\\Desktop\\GamesDevOne\\Models");
+	myEngine->AddMediaFolder("D:\\DKavanagh2\\Documents\\GitHub\\PathingFinding-Assignment\\GamesDevOne\\Models");
 
 	/**** Set up your scene here ****/
 	ICamera* myCam; // Model for the camera
@@ -33,7 +44,7 @@ void main()
 	IModel* skyBox; // Model for the skybox
 	IModel* pathFinder; // Model for the moving model
 	ESetUp setUp = setupStage; // Sets up the enum
-	pathFinder = tilesMesh->CreateModel(0.0f, 3.0f, 0.0f); // Creates the patherfinder model
+	pathFinder = tilesMesh->CreateModel(-200.0f, 3.0f, 0.0f); // Creates the patherfinder model
 	pathFinder->Scale(0.5f); // scales the pathfinder model down
 	skyBox = tilesMesh->CreateModel(50.0f, -500.0f, 0.0f); // creates the skybox model
 	skyBox->Scale(100.0f); // Scales the skybox up
@@ -110,18 +121,18 @@ void main()
 			}
 			}
 			/* This will load an algorthiem depending on what button is pressed */
-			if (myEngine->KeyHeld(Key_1)) 
+			if (myEngine->KeyHeld(kAstar)) 
 			{
 				SearchTypes = Astar;
 			}
-			if (myEngine->KeyHit(Key_2))
+			if (myEngine->KeyHit(kBreathFirst))
 			{
 				SearchTypes = BreathFirst;
 			}
 			/*******************************************************************/
 
 			/*Key Presses that will switch the current letter*/
-			if (myEngine->KeyHit(Key_Right))
+			if (myEngine->KeyHit(kPlusLetter))
 			{
 				if (currentLetter <= LETTERMAX) // checks to see if its at max
 				{
@@ -132,7 +143,7 @@ void main()
 					currentLetter = 0; // sets currentletter to 0
 				}
 			}
-			else if (myEngine->KeyHit(Key_Left))
+			else if (myEngine->KeyHit(kMinusLetter))
 			{
 				if (currentLetter >= 0) // checks to see if its at max
 				{
@@ -143,7 +154,7 @@ void main()
 					currentLetter = LETTERMAX; // sets currentletter to 25
 				}
 			}
-			if (myEngine->KeyHit(Key_Return)) // When pressed it will load the current map
+			if (myEngine->KeyHit(kLoadMap)) // When pressed it will load the current map
 			{
 				string mapLetter = LETTERARAY[currentLetter]; // Gets the current Letter
 				string tmpMap = "mMap.txt"; // gets the default map 
@@ -178,7 +189,7 @@ void main()
 			}
 			if (ready == true) // check to see if map has been loaded
 			{
-				if (myEngine->KeyHit(Key_Space)) // When pressed it will start the finding a path
+				if (myEngine->KeyHit(kStartPath)) // When pressed it will start the finding a path
 				{
 					setUp = runningStage; // Sets the next state to be ran
 					ready = false; // Set to false so map can be reload after
@@ -204,7 +215,7 @@ void main()
 				loading = false; // sets to false so it won't re-run the searchEngine
 			}
 			/* This is used to reset all the values which are used*/
-			if (myEngine->KeyHit(Key_R))
+			if (myEngine->KeyHit(kReset))
 			{
 				ClearMap(tiles, pathFinder, tilesMesh, gpStartNode, gmapTerrian, gpEndNode, mapX, mapY);
 				gpStartNode.reset(new SNode);
@@ -218,6 +229,11 @@ void main()
 			}
 			/*******************************************************/
 		}
+		}
+		/* Closes the program when pressed */
+		if (myEngine->KeyHit(kQuit))
+		{
+			myEngine->Stop();
 		}
 
 		/**** Update your scene each frame here ****/
