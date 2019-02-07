@@ -1,0 +1,9 @@
+X _ Y
+5_6
+5_7
+4_7
+3_7
+3_6
+3_5
+3_4
+Number of Itterations: 46
